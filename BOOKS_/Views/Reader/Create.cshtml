@@ -1,0 +1,33 @@
+﻿@model Reader
+<h2 class="text-primary">
+	Add New Reader
+</h2>
+<hr />
+<form asp-action="SaveCreate" asp-controller="Reader" method="post">
+	<div asp-validation-summary="All"></div>
+	<div>
+		<label asp-for="Name" style="font-weight: bold;"></label>
+		<input asp-for="Name" class="form-control" />
+		<span asp-validation-for="Name" class="text-danger"></span>
+	</div>
+	<div>
+		<label asp-for="Age" style="font-weight: bold;"></label>
+		<input asp-for="Age" class="form-control" />
+		<span asp-validation-for="Age" class="text-danger"></span>
+	</div>
+	<div>
+		<label asp-for="Image" style="font-weight: bold;"></label>
+		<input asp-for="Image" type="file" class="form-control" />
+		<span asp-validation-for="Image" class="text-danger"></span>
+	</div>
+
+
+	<input type="submit" value="Add" class="btn-btn-primary" style="background-color: blue; color: white;" />
+</form>
+<hr />
+<form action="/Reader/Index" method="post">
+	<button style="background-color: blue; color: white;">GO To List</button>
+</form>
+<script src="/lib/jquery/dist/jquery.js"></script>
+<script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>

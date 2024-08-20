@@ -1,0 +1,44 @@
+﻿@model List<ReaderBook>
+<h2 class="text-primary">Readers With Related Books</h2>
+<hr />
+<table class="table table-border table-hover">
+	<thead>
+		<tr>
+			<th>Name Of Reader</th>
+			<th>Age Of Reader</th>
+			<th>Title Of Book Which Reader Read</th>
+			<th>Description Of Book</th>
+			<th>Author Of Book</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.Reader.Name</td>
+				<td>@item.Reader.Age</td>
+				<td>@item.Book.Title</td>
+				<td>@item.Book.Description</td>
+				<td>@item.Book.Author</td>
+				<td>
+					<form action="/Reader/ShowPhoto/@item.Reader.Id" method="post">
+						<button style="background-color: blue; color: white;">Show Photo Of Reader</button>
+					</form>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+
+
+
+@* <div class="card" style="width:400px">
+    <img class="card-img-top" src="/Images/@item.Reader.Image" alt="Card image" style="width: 200px; height: 300px; object-fit: cover;">
+    <div class="card-body">
+        <h4 class="card-title"><strong style="color: #007bff;">Name: </strong> @item.Reader.Name</h4>
+        <h4 class="card-title"><strong style="color: #007bff;">Age: </strong>@item.Reader.Age</h4>
+        <h4 class="card-text"><strong style="color: #007bff;">Book Which Read: </strong> @item.Book.Title</h4>
+    </div>
+</div>
+ *@

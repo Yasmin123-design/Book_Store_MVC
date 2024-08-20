@@ -1,0 +1,39 @@
+﻿@model Book
+@{
+	SelectList selectListItems = new SelectList(ViewBag.categories, "Id", "Name");
+}
+<h2 class="text-primary">Edit Book</h2>
+<hr />
+
+<form asp-action="SaveEdit" asp-controller="Book" asp-route-id="@Model.Id" method="post">
+	<div>
+		<label asp-for="Title" style="font-weight: bold;"></label>
+		<input asp-for="Title" value="@Model.Title" class="form-control" />
+		<span asp-validation-for="Title" class="text-danger"></span>
+	</div>
+	<div>
+		<label asp-for="Author" style="font-weight: bold;"></label>
+		<input asp-for="Author" value="@Model.Author" class="form-control" />
+		<span asp-validation-for="Author" class="text-danger"></span>
+	</div>
+	<div>
+		<label asp-for="Description" style="font-weight: bold;"></label>
+		<input asp-for="Description" value="@Model.Description" class="form-control" />
+		<span asp-validation-for="Description" class="text-danger"></span>
+	</div>
+
+	<div>
+		<label asp-for="CategoryId" style="font-weight: bold;"></label>
+		<select asp-items="selectListItems" asp-for="CategoryId"  class="form-control">
+		</select>
+		<span asp-validation-for="CategoryId" class="text-danger"></span>
+	</div>
+	<input type="submit" value="Edit" class="btn-outline-success" style="background-color: blue; color: white; border: none; padding: 10px 20px;" />
+	<hr />
+	<form action="/Book/Index" method="post">
+		<button style="background-color: blue; color: white;">GO To List</button>
+	</form>
+</form>
+<script src="/lib/jquery/dist/jquery.js"></script> 
+<script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script> 
+<script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>

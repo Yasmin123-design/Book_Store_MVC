@@ -1,0 +1,51 @@
+﻿@model List<Reader>
+<h2 class="text-primary">Readers</h2>
+<hr />
+<a href="/Reader/Create" class="btn btn-primary">
+	Add New
+</a>
+<hr />
+
+@if(!Model.Any())
+{
+	<div class="alert alert-warning">
+		No Books Added Yet!!!
+	</div>
+}
+else
+{
+<table class="table table-border table-hover">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>@item.Name</td>
+					<td>@item.Age</td>
+
+				    <td>
+					  <div style="display: flex; gap: 5px;">
+						<form action="/Reader/Edit/@item.Id" method="post">
+							<button style="background-color: blue; color: white;">Edit</button>
+						</form>
+					
+						<form action="/Reader/Details/@item.Id" method="post">
+							<button style="background-color: blue; color: white;">Show Reader With Photo</button>
+						</form>
+					
+						<form action="/Reader/Delete/@item.Id" method="post">
+							<button class="btn-danger">Delete</button>
+						</form>
+					</td>
+					  <div/>
+				</tr>
+			}
+		</tbody>
+</table>
+}

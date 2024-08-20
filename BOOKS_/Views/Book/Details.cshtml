@@ -1,0 +1,23 @@
+﻿@model BOOKS_.ViewModels.BookDetails
+<h2 class="text-primary">Show Book Details</h2>
+<hr />
+<table class="table table-striped">
+    <tr>
+        <th>Id</th>
+        <th>Author</th>
+        <th>Desription</th>
+        <th>Title</th>
+        <th>Category Name</th>
+    </tr>
+    <tr>
+        <td>@Model.Id</td>
+        <td>@Model.Author</td>
+        <td>@Model.Description</td>
+        <td>@Model.Title</td>
+        <td>@Model.CategoryName</td>
+    </tr>
+</table>
+<hr />
+<form action="/Book/Index" method="post">
+    <button style="background-color: blue; color: white;">GO To List</button>
+</form>

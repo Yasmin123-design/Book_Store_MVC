@@ -1,0 +1,21 @@
+﻿@model Category
+<h2 class="text-primary">
+	Add New Category
+</h2>
+<hr />
+<form asp-action="SaveCreate" asp-controller="Category" method="post">
+	<div asp-validation-summary="All"></div>
+	<div>
+		<label asp-for="Name" style="font-weight: bold;"></label>
+		<input asp-for="Name" class="form-control" />
+		<span asp-validation-for="Name" class="text-danger"></span>
+	</div>
+	<input type="submit" value="Add" class="btn-btn-primary" style="background-color: blue; color: white;" />
+</form>
+<hr />
+<form action="/Category/Index" method="post">
+	<button style="background-color: blue; color: white;">GO To List</button>
+</form>
+<script src="/lib/jquery/dist/jquery.js"></script>
+<script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>

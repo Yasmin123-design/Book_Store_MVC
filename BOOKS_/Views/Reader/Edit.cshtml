@@ -1,0 +1,32 @@
+﻿@model Reader
+
+<h2 class="text-primary">Edit Reader</h2>
+<hr />
+
+<form asp-action="SaveEdit" asp-controller="Reader" asp-route-id="@Model.Id" method="post">
+	<div>
+		<label asp-for="Name" style="font-weight: bold;"></label>
+		<input asp-for="Name" value="@Model.Name" class="form-control" />
+		<span asp-validation-for="Name" class="text-danger"></span>
+	</div>
+	<div>
+		<label asp-for="Age" style="font-weight: bold;"></label>
+		<input asp-for="Age" value="@Model.Age" class="form-control" />
+		<span asp-validation-for="Age" class="text-danger"></span>
+	</div>
+	<div>
+		<label asp-for="Image" style="font-weight: bold;"></label>
+		<input asp-for="Image" value="/Images/@Model.Image" type="file" class="form-control" />
+		<span asp-validation-for="Image" class="text-danger"></span>
+	</div>
+
+
+	<input type="submit" value="Edit" class="btn-outline-success" style="background-color: blue; color: white; border: none; padding: 10px 20px;" />
+</form>
+<hr />
+<form action="/Reader/Index" method="post">
+	<button style="background-color: blue; color: white;">GO To List</button>
+</form>
+<script src="/lib/jquery/dist/jquery.js"></script>
+<script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>

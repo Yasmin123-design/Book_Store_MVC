@@ -1,0 +1,11 @@
+﻿@model Reader
+<h2 class="text-primary">Photo Of Reader</h2>
+<hr />
+
+<div class="card" style="width:200px">
+    <img class="card-img-top" src="/Images/@Model.Image" alt="Card image">
+</div>
+<hr />
+<form action="/Reader/GetDetailsReaderWithRelatedBook" method="post">
+	<button style="background-color: blue; color: white;">GO Back</button>
+</form>
